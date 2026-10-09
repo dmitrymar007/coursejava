@@ -1,0 +1,3 @@
+ReadOnlyCourseRepository extends CourseRepository обещает всё, что умеет CourseRepository, включая save, но save бросает UnsupportedOperationException. Значит, подкласс нельзя подставить туда, где ожидается родитель. CourseImporter принимает такой репозиторий, компилируется, а падает только во время выполнения. Это нарушение принципа подстановки Лисков.
+
+Исправление: методы чтения вынесены в интерфейс CourseReader (findById, findAll). CourseRepository расширяет его и добавляет save. ReadOnlyCourseRepository реализует только CourseReader, поэтому невозможной операции не обещает. CourseImporter принимает CourseRepository, а CourseCatalogReport только CourseReader. Передать read-only репозиторий в импортёр теперь нельзя, ошибка видна при компиляции.
