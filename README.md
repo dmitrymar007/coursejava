@@ -1,5 +1,6 @@
 ## Структура
 
+```text
 coursejava/
 ├── pom.xml                 родительский pom: версия Java, JUnit, список лаб
 └── labs/
@@ -9,6 +10,7 @@ coursejava/
         └── src/
             ├── main/java/taskM/   решение задачи M (+ README.md / ANSWER.md)
             └── test/java/taskM/   тесты задачи M
+```
 
 
 ## Сборка и запуск
