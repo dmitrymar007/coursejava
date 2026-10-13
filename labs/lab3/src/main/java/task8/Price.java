@@ -1,6 +1,6 @@
 package task8;
 
-/** Собственный value object: цена в копейках, сравнивается по сумме. */
+// Собственный value object: цена в копейках, сравнивается по сумме. 
 public record Price(long kopecks) implements Comparable<Price> {
     public Price {
         if (kopecks < 0) {

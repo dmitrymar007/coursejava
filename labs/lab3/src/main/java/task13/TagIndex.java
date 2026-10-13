@@ -8,13 +8,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Обратный индекс: тег -> курсы с этим тегом. */
+// Обратный индекс: тег -> курсы с этим тегом. 
 public class TagIndex {
     private final Map<Tag, Set<CourseId>> index = new HashMap<>();
     // Теги, под которыми курс записан в индексе: по ним remove не зависит от переданного объекта Course
     private final Map<CourseId, Set<Tag>> tagsByCourse = new HashMap<>();
 
-    /** Добавляет курс. Если курс с таким id уже есть, он заменяется целиком (старые теги снимаются). */
+    // Добавляет курс. Если курс с таким id уже есть, он заменяется целиком (старые теги снимаются). 
     public void add(Course course) {
         Objects.requireNonNull(course, "course");
         remove(course.id());
@@ -24,7 +24,7 @@ public class TagIndex {
         tagsByCourse.put(course.id(), course.tags());
     }
 
-    /** @return true, если курс был в индексе; false, если такого id нет (не ошибка) */
+    // @return true, если курс был в индексе; false, если такого id нет (не ошибка) 
     public boolean remove(CourseId id) {
         Objects.requireNonNull(id, "id");
         Set<Tag> tags = tagsByCourse.remove(id);
@@ -41,9 +41,9 @@ public class TagIndex {
         return true;
     }
 
-    /**
-     * Курсы, у которых есть все перечисленные теги (пересечение множеств). Для пустого набора тегов
-     * и для неизвестного тега результат пуст. Результат всегда неизменяемый.
+    /*
+      Курсы, у которых есть все перечисленные теги (пересечение множеств). Для пустого набора тегов
+      и для неизвестного тега результат пуст. Результат всегда неизменяемый.
      */
     public Set<CourseId> findByAll(Set<Tag> tags) {
         Objects.requireNonNull(tags, "tags");
@@ -68,7 +68,7 @@ public class TagIndex {
         return Collections.unmodifiableSet(result);
     }
 
-    /** Теги, у которых есть хотя бы один курс. Неизменяемая копия, порядок обхода стабилен. */
+    //Теги, у которых есть хотя бы один курс. Неизменяемая копия, порядок обхода стабилен. 
     public Set<Tag> tags() {
         return Collections.unmodifiableSet(new LinkedHashSet<>(index.keySet()));
     }

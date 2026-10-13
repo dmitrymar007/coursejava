@@ -3,7 +3,7 @@ package task2;
 import java.util.Locale;
 import java.util.Objects;
 
-/** Код курса. Равенство по значению: "java101" и " JAVA101 " - один и тот же код. */
+// Код курса. Равенство по значению: "java101" и " JAVA101 " - один и тот же код. 
 public final class CourseCode {
     private final String value;
 

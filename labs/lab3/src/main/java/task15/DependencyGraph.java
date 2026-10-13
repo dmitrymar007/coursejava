@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
-/** Граф зависимостей: ребро course -> prerequisite значит "course требует prerequisite". */
+// Граф зависимостей: ребро course -> prerequisite значит "course требует prerequisite". 
 public class DependencyGraph<V> {
     private static final int VISITING = 1;
     private static final int DONE = 2;
@@ -27,7 +27,7 @@ public class DependencyGraph<V> {
         prerequisites.get(course).add(prerequisite);
     }
 
-    /** Порядок изучения (prerequisites раньше курса) или найденный цикл. */
+    //Порядок изучения (prerequisites раньше курса) или найденный цикл. 
     public Plan<V> plan() {
         Map<V, Integer> state = new HashMap<>();
         List<V> order = new ArrayList<>();
@@ -43,7 +43,7 @@ public class DependencyGraph<V> {
         return new Plan<>(order, List.of());
     }
 
-    /** Обход в глубину. Возвращает цикл, если нашёл, иначе null. */
+    // Обход в глубину. Возвращает цикл, если нашёл, иначе null. 
     private List<V> visit(V vertex, Map<V, Integer> state, List<V> order, List<V> path) {
         state.put(vertex, VISITING);
         path.add(vertex);

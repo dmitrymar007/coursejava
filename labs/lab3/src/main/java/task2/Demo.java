@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Demo {
-    /** Класс БЕЗ equals/hashCode: равенство по ссылке. */
+    // Класс БЕЗ equals/hashCode: равенство по ссылке. 
     static final class RawCode {
         final String value;
 

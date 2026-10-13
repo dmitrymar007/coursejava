@@ -12,7 +12,7 @@ public final class Generics {
     private Generics() {
     }
 
-    /** Первый элемент; пустой список - NoSuchElementException (а не null и не IndexOutOfBounds). */
+    //Первый элемент; пустой список - NoSuchElementException (а не null и не IndexOutOfBounds). 
     public static <T> T firstOrThrow(List<T> list) {
         Objects.requireNonNull(list, "list");
         if (list.isEmpty()) {
@@ -21,21 +21,21 @@ public final class Generics {
         return list.get(0);
     }
 
-    /** Меняет местами два элемента на месте. Индексы проверяет сам List (IndexOutOfBoundsException). */
+    // Меняет местами два элемента на месте. Индексы проверяет сам List (IndexOutOfBoundsException). 
     public static <T> void swap(List<T> list, int i, int j) {
         T tmp = list.get(i);
         list.set(i, list.get(j));
         list.set(j, tmp);
     }
 
-    /** Индекс по ключу; при конфликте ключей - IllegalStateException (без молчаливой перезаписи). */
+    // Индекс по ключу; при конфликте ключей - IllegalStateException (без молчаливой перезаписи). 
     public static <T, K> Map<K, T> indexBy(List<T> items, Function<? super T, ? extends K> keyFn) {
         return indexBy(items, keyFn, (first, second) -> {
             throw new IllegalStateException("конфликт ключей: " + first + " и " + second);
         });
     }
 
-    /** Индекс по ключу с явной политикой слияния: merge(старое, новое) решает, что хранить. */
+    // Индекс по ключу с явной политикой слияния: merge(старое, новое) решает, что хранить. 
     public static <T, K> Map<K, T> indexBy(List<T> items, Function<? super T, ? extends K> keyFn,
                                            BinaryOperator<T> merge) {
         Objects.requireNonNull(keyFn, "keyFn");

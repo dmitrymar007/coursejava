@@ -2,7 +2,7 @@ package task10;
 
 import java.util.Objects;
 
-/** Сущность: идентичность - id (неизменяемый), равенство и hashCode только по нему. Название изменяемо. */
+// Сущность: идентичность - id (неизменяемый), равенство и hashCode только по нему. Название изменяемо. 
 public class Course {
     private final long id;
     private String title;

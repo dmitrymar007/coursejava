@@ -2,7 +2,7 @@ package task10;
 
 import java.util.Objects;
 
-/** Намеренно ошибочный вариант: изменяемое поле title входит в equals и hashCode. */
+// Намеренно ошибочный вариант: изменяемое поле title входит в equals и hashCode. 
 public class BadCourse {
     private final long id;
     private String title;

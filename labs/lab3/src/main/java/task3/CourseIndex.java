@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-/** Индекс CourseId -> Course. Повторный id - ошибка, а не молчаливая перезапись. */
+// Индекс CourseId -> Course. Повторный id - ошибка, а не молчаливая перезапись. 
 public class CourseIndex {
     private final Map<CourseId, Course> byId = new HashMap<>();
 
-    /** putIfAbsent: одна операция вместо containsKey+put, возвращает прежнее значение. */
+    // putIfAbsent: одна операция вместо containsKey+put, возвращает прежнее значение. 
     public void add(Course course) {
         Course previous = byId.putIfAbsent(course.id(), course);
         if (previous != null) {

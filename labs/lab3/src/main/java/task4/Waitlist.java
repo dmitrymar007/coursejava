@@ -6,32 +6,32 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Queue;
 
-/** FIFO-очередь ожидания. Первым выходит тот, кто встал раньше. */
+// FIFO-очередь ожидания. Первым выходит тот, кто встал раньше. 
 public class Waitlist<T> {
     private final Queue<T> queue = new ArrayDeque<>();
 
-    /** Встать в очередь. ArrayDeque не ограничен по размеру, поэтому offer всегда true; null запрещён. */
+    // Встать в очередь. ArrayDeque не ограничен по размеру, поэтому offer всегда true; null запрещён. 
     public void join(T student) {
         Objects.requireNonNull(student, "student");
         queue.offer(student);
     }
 
-    /** Кто следующий, не извлекая. На пустой очереди - пустой Optional (peek). */
+    // Кто следующий, не извлекая. На пустой очереди - пустой Optional (peek). 
     public Optional<T> next() {
         return Optional.ofNullable(queue.peek());
     }
 
-    /** Извлечь следующего. На пустой очереди - пустой Optional (poll). */
+    // Извлечь следующего. На пустой очереди - пустой Optional (poll). 
     public Optional<T> serve() {
         return Optional.ofNullable(queue.poll());
     }
 
-    /** Строгий вариант: на пустой очереди бросает NoSuchElementException (remove). */
+    // Строгий вариант: на пустой очереди бросает NoSuchElementException (remove). 
     public T serveOrThrow() {
         return queue.remove();
     }
 
-    /** Строгий вариант просмотра (element). */
+    // Строгий вариант просмотра (element). 
     public T nextOrThrow() {
         if (queue.isEmpty()) {
             throw new NoSuchElementException("очередь ожидания пуста");

@@ -2,7 +2,7 @@ package task6;
 
 import java.util.Objects;
 
-/** Результат операции: либо значение типа T, либо сообщение об ошибке. */
+// Результат операции: либо значение типа T, либо сообщение об ошибке. 
 public final class Result<T> {
     private final T value;
     private final String error;

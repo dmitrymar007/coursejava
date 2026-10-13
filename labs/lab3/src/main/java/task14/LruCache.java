@@ -4,10 +4,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * LRU-кэш фиксированной ёмкости. LinkedHashMap с accessOrder=true помнит порядок использования:
- * первым в обходе идёт самый давно использованный элемент.
- * null-политика: null-ключи и null-значения запрещены, поэтому get() == null означает "ключа нет".
+/*
+  LRU-кэш фиксированной ёмкости. LinkedHashMap с accessOrder=true помнит порядок использования:
+  первым в обходе идёт самый давно использованный элемент.
+  null-политика: null-ключи и null-значения запрещены, поэтому get() == null означает "ключа нет".
  */
 public class LruCache<K, V> {
     private final Map<K, V> map;
@@ -28,7 +28,7 @@ public class LruCache<K, V> {
         };
     }
 
-    /** Обращение делает ключ самым свежим. */
+    // Обращение делает ключ самым свежим. 
     public V get(K key) {
         return map.get(Objects.requireNonNull(key, "key"));
     }
@@ -37,7 +37,7 @@ public class LruCache<K, V> {
         map.put(Objects.requireNonNull(key, "key"), Objects.requireNonNull(value, "value"));
     }
 
-    /** Ключи от самого старого к самому свежему. */
+    // Ключи от самого старого к самому свежему. 
     @Override
     public String toString() {
         return map.keySet().toString();

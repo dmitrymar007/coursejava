@@ -7,9 +7,9 @@ public final class Copying {
     private Copying() {
     }
 
-    /**
-     * PECS: Producer Extends, Consumer Super.
-     * src только отдаёт элементы -> {@code ? extends T}; dst только принимает -> {@code ? super T}.
+    /*
+      PECS: Producer Extends, Consumer Super.
+      src только отдаёт элементы -> {@code ? extends T}; dst только принимает -> {@code ? super T}.
      */
     public static <T> void copy(List<? extends T> src, List<? super T> dst) {
         Objects.requireNonNull(src, "src");
@@ -19,7 +19,7 @@ public final class Copying {
         }
     }
 
-    /** Чтение из {@code List<? super Course>} возможно только как Object. */
+    // Чтение из {@code List<? super Course>} возможно только как Object. 
     public static Object firstOf(List<? super Course> consumer) {
         return consumer.isEmpty() ? null : consumer.get(0);
     }
