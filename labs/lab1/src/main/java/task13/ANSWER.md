@@ -1,3 +1,5 @@
+Задание 13. Удаление type code
+
 В LegacyNotificationService поведение выбирается через switch по строке notificationType. Каждый новый тип это правка switch, а опечатка в строке видна только во время выполнения.
 
 Теперь различия вынесены в интерфейс NotificationChannel с реализациями EmailChannel, SmsChannel и PushChannel. ChannelRegistry один раз сопоставляет строку конфигурации и объект, а NotificationService просто вызывает нужный канал и не знает конкретных классов.

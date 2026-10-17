@@ -1,3 +1,5 @@
+Задание 10. Конфликт default-методов
+
 TextRenderer и HtmlRenderer оба содержат default-метод render(). Если класс реализует оба интерфейса и не переопределяет render, компилятор выдаёт ошибку:
 
 types TextRenderer and HtmlRenderer are incompatible; class CoursePage inherits unrelated defaults for render() from types TextRenderer and HtmlRenderer

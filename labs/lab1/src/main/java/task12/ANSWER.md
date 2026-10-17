@@ -1,3 +1,5 @@
+Задание 12. Sealed-иерархия результата
+
 EnrollmentResult это sealed интерфейс, а Accepted, Rejected, WaitListed и добавленный позже PendingPayment это его допустимые типы. Метод describe в Main разбирает результат через switch без default.
 
 При добавлении PendingPayment компилятор потребовал изменений в двух местах.
